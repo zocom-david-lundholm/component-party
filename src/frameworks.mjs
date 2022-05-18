@@ -36,12 +36,33 @@ export default [
 		},
 	},
 	{
+		id: 'vue2',
+		title: 'Vue 2',
+		ext: 'vue',
+		img: 'framework/vue.svg',
+		eslint: {
+			files: ['**/vue2/**/*.vue'],
+			env: {
+				'vue/setup-compiler-macros': true,
+			},
+			extends: ['eslint:recommended', 'plugin:vue/recommended'],
+			rules: {
+				'vue/multi-word-component-names': 'off',
+			},
+		},
+		playgroundURL: 'https://codesandbox.io/s/gxe1w',
+		documentationURL: 'https://v2.vuejs.org/',
+		filesSorter(files) {
+			return [files.find(({ fileName }) => fileName === 'App.vue'), ...(files.filter(({ fileName }) => fileName !== 'App.vue') || [])].filter((x) => x);
+		},
+	},
+	{
 		id: 'vue3',
 		title: 'Vue 3',
 		ext: 'vue',
 		img: 'framework/vue.svg',
 		eslint: {
-			files: ['*.vue'],
+			files: ['**/vue3/**/*.vue'],
 			env: {
 				'vue/setup-compiler-macros': true,
 			},
